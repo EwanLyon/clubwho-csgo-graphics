@@ -1,0 +1,41 @@
+@font-face {
+    font-family: 'Sansation';
+    src: url('Sansation_Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Sansation';
+    src: url('Sansation_Italic.ttf') format('truetype');
+    font-weight: 400;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Sansation';
+    src: url('Sansation_Bold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Sansation';
+    src: url('Sansation_Bold_Italic.ttf') format('truetype');
+    font-weight: 700;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Sansation';
+    src: url('Sansation_Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Sansation';
+    src: url('Sansation_Light_Italic.ttf') format('truetype');
+    font-weight: 300;
+    font-style: italic;
+}

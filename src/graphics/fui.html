@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<title>FUI</title>
+		<style>
+			body {
+				margin: 0;
+			}
+
+			@keyframes firing-anim {
+				from {opacity: 1}
+				to {opacity: 0}
+			}
+
+			.firing-animation {
+				animation: firing-anim 0.5s forwards;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="game"></div>
+
+		<!-- <div
+			style="
+				position: absolute;
+				padding: 20px;
+				background: white;
+				color: black;
+				font-family: monospace;
+				font-size: 30px;
+			"
+			id="raw"
+		></div> -->
+		<script src="fui/App.tsx"></script>
+		<!-- <script>
+			const gameRep = nodecg.Replicant('game', 'csgo-layouts');
+			gameRep.on('change', (newVal) => {
+				// console.log(newVal.provider.timestamp);
+				document.getElementById('raw').innerText = newVal.provider.timestamp;
+			});
+		</script> -->
+	</body>
+</html>
