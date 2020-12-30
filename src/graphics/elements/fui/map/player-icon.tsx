@@ -115,7 +115,7 @@ export const PlayerIcon: React.FC<Props> = (props: Props) => {
 	useListenFor(
 		'hlae-weaponFire',
 		(gameEvent: WeaponFire) => {
-			if (gameEvent.keys.userid.xuid === props.steamId) {
+			if (gameEvent.keys.userid.xuid === props.steamId && !disallowedFiringWeapons.includes(gameEvent.keys.weapon)) {
 				firingLineRef.current?.classList.remove('firing-animation');
 				void firingLineRef.current?.offsetWidth;
 				firingLineRef.current?.classList.add('firing-animation');
@@ -218,3 +218,5 @@ export const FlashingBomb: React.FC<FlashingBombProps> = (props: FlashingBombPro
 		/>
 	);
 };
+
+const disallowedFiringWeapons = ['weapon_knife'];

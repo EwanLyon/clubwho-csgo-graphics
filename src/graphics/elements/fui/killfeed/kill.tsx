@@ -5,9 +5,7 @@ import gsap from 'gsap';
 
 import { PlayerDeath } from '../../../../types/hlae';
 import { stateType } from '../../../replicant-store';
-
-import { PrimaryWeapon, primaryWeaponImages, PrimaryWeaponList } from '../../atoms/primary-weapons';
-import { SecondaryWeapon, secondaryWeaponImages, SecondaryWeaponList } from '../../atoms/secondary-weapons';
+import { KillIcon } from './kill-icon';
 
 const KillContainer = styled.div`
 	height: 0;
@@ -34,15 +32,9 @@ interface Props {
 
 export const Kill: React.FC<Props> = (props: Props) => {
 	const containerRef = useRef<HTMLDivElement>(null);
-	const playerDead = useSelector(
-		(state: stateType) => state.game.allplayers[props.data.keys.userid.xuid],
-	);
-	const attacker = useSelector(
-		(state: stateType) => state.game.allplayers[props.data.keys.attacker.xuid],
-	);
-	const assister = useSelector(
-		(state: stateType) => state.game.allplayers[props.data.keys.assister.xuid],
-	);
+	const playerDead = useSelector((state: stateType) => state.game.allplayers[props.data.keys.userid.xuid]);
+	const attacker = useSelector((state: stateType) => state.game.allplayers[props.data.keys.attacker.xuid]);
+	const assister = useSelector((state: stateType) => state.game.allplayers[props.data.keys.assister.xuid]);
 
 	useEffect(() => {
 		const tl = gsap.timeline();
@@ -51,13 +43,6 @@ export const Kill: React.FC<Props> = (props: Props) => {
 		tl.to(containerRef.current, { height: 42, borderWidth: 1, duration: 0.1 });
 		tl.to(containerRef.current, { height: 0, borderWidth: 0, duration: 0.3 }, '+=5');
 	}, []);
-
-	let weaponImage;
-	if (isPrimaryWeapon(props.data.keys.weapon)) {
-		weaponImage = <PrimaryWeapon active style={{ height: '60%' }} item={props.data.keys.weapon} />;
-	} else if (isSecondaryWeapon(props.data.keys.weapon)) {
-		weaponImage = <SecondaryWeapon active style={{ height: '60%' }} item={props.data.keys.weapon} />;
-	}
 
 	return (
 		<KillContainer ref={containerRef}>
@@ -80,7 +65,7 @@ export const Kill: React.FC<Props> = (props: Props) => {
 			) : (
 				<></>
 			)}
-			{weaponImage}
+			<KillIcon weapon={props.data.keys.weapon} />
 			{props.data.keys.noscope ? (
 				<InfoIcon src={require('../../../images/in-game/weapons/noscope.svg')} />
 			) : (
@@ -120,11 +105,3 @@ const PlayerName: React.FC<NameProps> = (props: NameProps) => {
 
 	return <Name style={{ color: fontColour }}>{props.name}</Name>;
 };
-
-function isPrimaryWeapon(weapon: string): weapon is PrimaryWeaponList {
-	return weapon in primaryWeaponImages;
-}
-
-function isSecondaryWeapon(weapon: string): weapon is SecondaryWeaponList {
-	return weapon in secondaryWeaponImages;
-}

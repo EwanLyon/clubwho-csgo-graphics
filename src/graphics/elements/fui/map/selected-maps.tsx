@@ -3,6 +3,7 @@ import styled, { keyframes, css } from 'styled-components';
 
 import { ExtraMapData } from '../../../../types/map-data';
 import { DesktopWindows } from '@material-ui/icons';
+import { TeamData } from '../../../../types/extra-data';
 
 const Container = styled.div`
 	width: 1004px;
@@ -83,8 +84,8 @@ const FadeText2 = styled(FadeText1)`
 
 interface Props {
 	mapData: ExtraMapData[];
-	teamOneLogo: string;
-	teamTwoLogo: string;
+	teamOne: TeamData;
+	teamTwo: TeamData;
 	swapTeams?: boolean;
 }
 
@@ -99,7 +100,7 @@ export const SelectedMaps: React.FC<Props> = React.memo((props: Props) => {
 			return undefined;
 		}
 
-		const teamImage = map.team === '1' ? props.teamOneLogo : props.teamTwoLogo;
+		const teamImage = map.team === props.teamOne.name ? props.teamOne.teamURL : props.teamTwo.teamURL;
 		const mapName = map.map.replace('de_', '');
 
 		let matchScore = '';
@@ -111,9 +112,9 @@ export const SelectedMaps: React.FC<Props> = React.memo((props: Props) => {
 					: `${map.teamOneScore}:${map.teamTwoScore}`;
 
 				if (map.teamOneScore > map.teamTwoScore) {
-					matchWinnerLogo = props.teamOneLogo;
+					matchWinnerLogo = props.teamOne.teamURL;
 				} else {
-					matchWinnerLogo = props.teamTwoLogo;
+					matchWinnerLogo = props.teamTwo.teamURL;
 				}
 			}
 		}

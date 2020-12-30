@@ -1,6 +1,6 @@
 {
   "name": "clubwho-csgo-graphics",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "",
   "homepage": "",
   "author": {
@@ -20,7 +20,7 @@
   ],
   "nodecg": {
     "bundleDependencies": {
-      "nodecg-csgo-manager": "^0.1.0"
+      "nodecg-csgo-manager": "^0.3.0"
     },
     "compatibleRange": "^1.7.1",
     "dashboardPanels": [
@@ -42,41 +42,6 @@
         "file": "fui.html",
         "width": 1920,
         "height": 1080
-      },
-      {
-        "file": "real-cam.html",
-        "width": 1920,
-        "height": 1080
-      },
-      {
-        "file": "test-scorebug.html",
-        "width": 0,
-        "height": 0
-      },
-      {
-        "file": "test-player.html",
-        "width": 0,
-        "height": 0
-      },
-      {
-        "file": "test-currentplayer.html",
-        "width": 0,
-        "height": 0
-      },
-      {
-        "file": "test-minibuy.html",
-        "width": 0,
-        "height": 0
-      },
-      {
-        "file": "test-map.html",
-        "width": 0,
-        "height": 0
-      },
-      {
-        "file": "test-ingamestats.html",
-        "width": 0,
-        "height": 0
       }
     ]
   },
